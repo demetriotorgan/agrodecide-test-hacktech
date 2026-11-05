@@ -1,13 +1,54 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 export default function VoiceAgent() {
-  // 1. PRIMEIRO STATE - está ouvindo ou não?
-  // false = parado / true = ouvindo
   const [ouvindo, setOuvindo] = useState(false);
+  const recognitionRef = useRef(null);
 
-  // 2. Função que troca o estado quando toca no botão
   function handleToggleOuvir() {
-    setOuvindo((valorAtual) => !valorAtual);
+    // 1. Pega a API do navegador (Chrome usa webkitSpeechRecognition)
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Seu navegador não suporta reconhecimento de voz. Use o Chrome.");
+      return;
+    }
+
+    // 2. Se já está ouvindo, para
+    if (ouvindo) {
+      recognitionRef.current?.stop();
+      setOuvindo(false);
+      return;
+    }
+
+    // 3. Se não está ouvindo, cria e inicia
+    const recognition = new SpeechRecognition();
+    recognition.lang = "pt-BR";
+    recognition.interimResults = false;
+    recognition.continuous = false;
+
+    recognition.onstart = () => {
+      console.log("🎤 Começou a ouvir...");
+      setOuvindo(true);
+    };
+
+    recognition.onresult = (event) => {
+      const texto = event.results[0][0].transcript;
+      console.log("Transcrição:", texto);
+    };
+
+    recognition.onend = () => {
+      console.log("⏹️ Parou de ouvir");
+      setOuvindo(false);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Erro no reconhecimento:", event.error);
+      setOuvindo(false);
+    };
+
+    recognitionRef.current = recognition;
+    recognition.start();
   }
 
   return (
