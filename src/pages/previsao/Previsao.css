@@ -1,0 +1,78 @@
+/* Container do Card de Destaque */
+.previsao-destaque-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid rgba(66, 132, 117, 0.15); /* Borda suave baseada na cor primária */
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-top: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Lado Esquerdo - Textos e Informações */
+.destaque-info-esquerda {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.destaque-detalhes-grid{
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.detalhe-item  span{
+    margin-left: 10px;
+}
+
+.destaque-titulo {
+    font-size: 16px;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    margin: 0;    
+}
+
+.destaque-data {
+    font-size: 14px;
+    color: var(--color-text);
+    opacity: 0.8;
+    margin: 0;
+}
+
+.destaque-chuva {
+    font-size: 15px;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.destaque-chuva strong {
+    font-weight: bold;
+    color: var(--color-primary-dark);
+}
+
+.detalhe-item{
+    padding: 5px;
+}
+
+/* Lado Direito - Container do Ícone */
+.destaque-icone-direita {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background-color: rgba(66, 132, 117, 0.1); /* Fundo sutil para abraçar o ícone */
+    border-radius: 50%;
+    padding: 12px;
+}
+
+/* Estilização do SVG */
+.clima-svg-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

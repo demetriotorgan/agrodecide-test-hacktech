@@ -1,0 +1,32 @@
+/* (Container Principal) */
+.phone-container {
+    width: 100%;
+    max-width: 412px; /* Largura padrão de smartphone */
+    min-height: 100vh; /* Ocupa 100% da altura da tela */
+    min-height: 100dvh; /* Suporte dinâmico para navegadores mobile reais */
+    background-color: var(--color-background);
+    box-sizing: border-box;    
+    display: flex;
+    flex-direction: column;    
+}
+
+
+
+/* Conteúdo Principal */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-grow: 1; /* O main cresce para ocupar o espaço disponível e empurrar o footer */
+}
+
+
+
+
+/* Ajuste fino para telas que realmente são mobile (remove as bordas do simulador) */
+@media (max-width: 412px) {
+    .phone-container {
+        border: none;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,63 @@
+.painel-historical{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: auto repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;    
+    padding: 5px 15px;
+}
+
+.historical-dias{
+    grid-column: 1 / 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 14px;
+
+    border: 1px solid #3f4d5f;
+    border-radius: 8px;      
+}
+
+.painel-historical .historical-dias p {
+    color: var(--color-primary)
+}
+
+.painel-historical > div:not(.historical-dias){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: var( --color-primary);
+
+    border: 1px solid #334155;
+
+    min-height: 80px;
+}
+
+.painel-historical > div:not(.historical-dias) p:first-child{
+    font-size: .85rem;
+    color: var( --color-white);
+    margin-bottom: 6px;
+}
+
+.painel-historical > div:not(.historical-dias) p:last-child{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.historical-dias select{
+    padding: 10px 10px;
+    width: 30%;    
+    border-radius: 6px;
+    border: 1px solid #4b5563;
+    background: var(--color-primary);
+    color: white;
+    cursor: pointer;
+}

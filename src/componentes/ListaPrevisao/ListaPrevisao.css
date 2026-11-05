@@ -1,0 +1,92 @@
+/* Container que envolve todas as linhas da "tabela" */
+.lista-previsao-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white); /* Fundo branco limpo unificando a tabela */
+    border-radius: var(--radius-md);
+    padding: 8px 16px;
+    margin-top: 10px;
+    box-shadow: var(--shadow-sm); /* Sombra bem leve apenas no bloco geral, não nos itens */
+    overflow: hidden; /* Garante que o background do primeiro item respeite o radius do container */
+}
+
+/* Cada linha da tabela */
+.previsao-linha-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0; /* Espaçamento interno vertical da linha */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06); /* Separação horizontal bem sutil e discreta */
+    transition: all 0.2s ease;
+}
+
+/* Remove a borda da última linha para não sobrar um traço no final */
+.previsao-linha-item:last-child {
+    border-bottom: none;
+}
+
+/* Efeito sutil ao passar o dedo/mouse na linha da tabela */
+.previsao-linha-item:hover {
+    background-color: rgba(66, 132, 117, 0.03); /* Toque bem leve da sua cor primária */
+}
+
+/* =======================================================
+   DESTAQUE PARA O DIA DE HOJE (PRIMEIRO ITEM)
+   ======================================================= */
+.previsao-linha-item.dia-atual {
+    background-color: rgba(137, 215, 183, 0.15); /* Uso sutil da --color-primary-light com opacidade */
+    padding-left: 8px;   /* Pequeno ajuste de padding para não colar no destaque lateral */
+    padding-right: 8px;
+    font-weight: bold;
+}
+
+.previsao-linha-item.dia-atual .previsao-item-data {
+    color: var(--color-primary-dark);
+    font-weight: 700; /* Deixa o texto "Hoje" ligeiramente mais forte */
+}
+
+/* Alinhamento da Esquerda: Data */
+.previsao-item-data {
+    flex: 1; /* Garante que ocupa o espaço da esquerda */
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    text-align: left;
+}
+
+/* Alinhamento do Centro: Ícone */
+.previsao-item-icone {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centraliza o ícone perfeitamente na coluna do meio */
+    align-items: center;
+}
+
+/* Ajuste caso use SVG dentro do contêiner do ícone */
+.previsao-item-icone svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Alinhamento da Direita: Volume em mm */
+.previsao-item-mm {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary-dark); /* Destaca levemente o volume com a cor escura */
+    text-align: right; /* Alinha o texto à direita na terceira coluna */
+}
+
+/* Estilizações condicionais discretas */
+.previsao-linha-item.dia-seco .previsao-item-mm {
+    color: #888888; /* Se não chover, deixa o valor com uma cor mais neutra */
+}
+
+.previsao-linha-item.dia-chuva .previsao-item-mm {
+    color: var(--color-primary); /* Se houver chuva, destaca com a cor primária verde */
+}
+
+/* Mantém o volume do dia atual bem visível mesmo se for seco */
+.previsao-linha-item.dia-atual .previsao-item-mm {
+    font-size: 15px; /* Ganha um sutil aumento de tamanho */
+}

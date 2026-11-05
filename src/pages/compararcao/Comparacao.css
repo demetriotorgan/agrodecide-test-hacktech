@@ -1,0 +1,176 @@
+/* ==========================================================================
+   PAINEL DE SELEÇÃO DE PERÍODOS
+========================================================================== */
+
+.painel-seletores {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 20px;
+
+    width: 100%;
+
+    padding: 20px 24px;
+    margin-bottom: 5px;
+
+    background: var(--color-primary-dark);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* Cada campo */
+
+.painel-seletores > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Labels */
+
+.painel-seletores p {
+    margin-bottom: 8px;
+
+    color: var(--color-white);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Selects */
+
+.painel-seletores select {
+    padding: 10px 14px;
+
+    font-size: 1rem;
+
+    color: var(--color-text);
+    background: var(--color-white);
+
+    border: 2px solid transparent;
+    border-radius: var(--radius-sm);
+
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+.painel-seletores select:hover {
+    border-color: var(--color-primary-light);
+}
+
+.painel-seletores select:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(137, 215, 183, 0.35);
+}
+
+/* Botão */
+
+.btn-comparar {
+    align-self: flex-end;
+
+    padding: 11px 24px;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    background: var(--color-primary);
+    color: var(--color-white);
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+}
+
+.btn-comparar:hover {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+
+    transform: translateY(-2px);
+}
+
+.btn-comparar:active {
+    transform: translateY(0);
+}
+
+    /* ------TABELA-------- */
+    /* ==========================================================================
+   TABELA COMPARATIVA
+========================================================================== */
+
+.painel-comparativo {
+    width: 100%;
+    margin-top: 0px;
+}
+
+.tabela-comparativa {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.tabela-comparativa thead {
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+.tabela-comparativa th,
+.tabela-comparativa td {
+    padding: 14px 18px;
+    text-align: center;
+}
+
+.tabela-comparativa th:first-child,
+.tabela-comparativa td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.tabela-comparativa tbody tr {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.tabela-comparativa tbody tr:last-child {
+    border-bottom: none;
+}
+
+.tabela-comparativa tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.tabela-comparativa tbody tr:hover {
+    background: rgba(137, 215, 183, 0.15);
+}
+
+/* -----Grafico------- */
+.painel-comparativo h3{
+    margin: 10px;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+    .painel-seletores {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .painel-seletores > div {
+        width: 100%;
+    }
+
+    .btn-comparar {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+}

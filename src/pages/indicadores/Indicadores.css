@@ -1,0 +1,263 @@
+.indicadores-container {
+  display: flex;  
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 15px;
+  gap: 15px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.componentes-indicador{
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--color-primary);
+}
+
+.indicadores-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-white);
+}
+
+.indicadores-header h2 {
+  font-size: 1.25rem;  
+  margin: 0;
+}
+
+/* Estilização dos Cards base */
+.indicador-card, .fatores-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.indicador-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.indicador-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* 2. Badge de Status Personalizada */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-baixa {
+  background-color: #ffebee;
+  color: var(--color-primary);
+}
+
+.status-alta {
+  background-color: #ffebee;
+  color: red;
+}
+
+/* 1. Gráfico de Barra Horizontal */
+.barra-progresso-container {
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.barra-progresso-preenchimento {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Cor dinâmica para o progresso */
+.progresso-baixa {
+  background-color: var(--color-primary);
+}
+
+.progresso-alta {
+  background-color: #d32f2f;
+}
+
+.barra-progresso-valores {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 6px;
+}
+
+.barra-progresso-valores .valor-actual {
+  font-weight: bold;
+  color: var(--color-primary-dark);
+}
+
+/* 4 e 5: Grid de Métricas Secundárias */
+.metricas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.metrica-item {
+  background-color: var(--color-white);
+  padding: 12px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metrica-topo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.metrica-topo .icon-temp { color: #ff9800; }
+.metrica-topo .icon-chuva { color: var(--color-primary); }
+
+.metrica-valor {
+  font-size: 1.2rem;
+  color: var(--color-primary-dark);
+}
+
+/* 3. Lista de Fatores */
+.fatores-card h3 {
+  font-size: 0.95rem;
+  color: var(--color-primary-dark);
+  margin: 0 0 12px 0;
+}
+
+.fatores-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fator-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.fator-icone {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.fator-icone.sucesso { color: #2e7d32; }
+.fator-icone.erro { color: #c62828; }
+
+/* 6. Banner Inteligente (Groq) em destaque */
+.banner-ia {
+  background: linear-gradient(135deg, #1a312c 0%, #2c4e46 100%);
+  color: var(--color-white);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 5px solid var(--color-primary-light);
+}
+
+.banner-ia-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-primary-light);
+}
+
+.banner-ia-titulo h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.banner-ia-texto {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #e0f2f1;
+}
+
+/* --------------CARD INDICADORES---------- */
+
+.card-imagem img{
+  width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.card-info-container{
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.card-indice{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card-chuva{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card-temperatura{
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card-indicador button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

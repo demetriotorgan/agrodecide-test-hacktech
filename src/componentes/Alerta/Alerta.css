@@ -1,0 +1,68 @@
+/* ==========================================================================
+   3. Componente de Alerta Climático
+   ========================================================================== */
+
+.alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+    /* Cores Globais */
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+    
+    /* Espaçamento e Bordas */
+    margin: 8px 16px 16px 16px; /* Margens alinhadas com as laterais do Menu */
+    padding: 14px 16px;
+    border-radius: var(--radius-md); /* Mantém o padrão de 12px do menu */
+    
+    /* Efeitos */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    
+    /* Animação sutil de entrada ou atenção */
+    animation: pulseGlow 4s infinite ease-in-out;
+}
+
+.alert-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Impede o ícone de amassar em telas muito pequenas */
+}
+
+.alert-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.2px; /* Ícone levemente mais grosso para destacar o aviso */
+    color: #f10ba1;
+}
+
+.alert-message {
+    font-size: 12px;
+    font-weight: 600; /* Semibold para leitura rápida */
+    line-height: 1.4;
+    margin: 0;
+    text-align: left;
+    color: var( --color-primary-dark);
+}
+
+/* Animação opcional: Pulsação bem sutil na sombra para atrair o olhar do usuário */
+@keyframes pulseGlow {
+    0% {
+        transform: scale(1);
+        /* Começa com a sombra padrão global reduzida */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+    50% {
+        /* Um ganho de tamanho quase imperceptível (0.5%) ajuda na ilusão de ótica de "respirar" */
+        transform: scale(1.05); 
+        
+        /* Expande a sombra usando a cor principal global (--color-primary) de forma bem sutil */
+        box-shadow: 0 6px 18px rgba(66, 132, 117, 0.35); 
+    }
+    100% {
+        transform: scale(1);
+        /* Termina EXATAMENTE igual ao 0% para o loop ser infinito e invisível */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+}

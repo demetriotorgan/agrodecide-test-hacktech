@@ -1,0 +1,42 @@
+/* ==========================================================================
+   LOADING COMPARAÇÃO
+========================================================================== */
+
+.painel-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 30px;
+    padding: 50px;
+
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.painel-loading p {
+    margin-top: 18px;
+
+    color: var(--color-primary-dark);
+    font-weight: 600;
+}
+
+.loader {
+    width: 55px;
+    height: 55px;
+
+    border: 6px solid rgba(66, 132, 117, 0.2);
+    border-top: 6px solid var(--color-primary);
+
+    border-radius: 50%;
+
+    animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}

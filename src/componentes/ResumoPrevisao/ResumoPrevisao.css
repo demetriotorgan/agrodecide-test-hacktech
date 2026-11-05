@@ -1,0 +1,65 @@
+.resumo-climatico-container {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    
+    padding: 16px;
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.resumo-item {
+    display: flex;
+    flex-direction: row; /* Coloca o conteúdo de texto e o ícone lado a lado */
+    justify-content: space-between; /* Texto na esquerda, ícone na direita */
+    align-items: center; /* Centraliza verticalmente o ícone com o bloco de texto */
+    padding: 10px 12px;
+    background-color: rgba(66, 132, 117, 0.05);
+    border-radius: var(--radius-sm);
+}
+
+.resumo-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.resumo-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.resumo-valor {
+    font-size: 1.2rem; /* Leve redução para acomodar o ícone sem quebrar linha em telas pequenas */
+    font-weight: bold;
+    color: var(--color-primary-dark);
+}
+
+/* Estilização padrão dos ícones */
+.resumo-icone {
+    color: var(--color-primary-dark);
+    opacity: 0.4; /* Deixa o ícone sutil para que o dado textual seja o foco principal */
+    flex-shrink: 0; /* Impede que o ícone esmague em telas muito estreitas */
+    margin-left: 4px;
+}
+
+/* Destaques de cores consistentes para valores e ícones */
+.resumo-valor.destaque-chuva,
+.resumo-icone.destaque-chuva {
+    color: var(--color-primary);
+    opacity: 0.8;
+}
+
+.resumo-valor.destaque-seco,
+.resumo-icone.destaque-seco {
+    color: #C27D38; /* Tom terroso consistente */
+    opacity: 0.8;
+}

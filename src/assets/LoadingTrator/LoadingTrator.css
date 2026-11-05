@@ -1,0 +1,56 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /* Ocupa o ecrã inteiro */
+    background-color: var(--color-background); /* Fundo branco solicitado */
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Estilização do ícone */
+.trator-animado {
+    color: var(--color-primary, #428475); /* Usa a cor verde do projeto */
+    animation: moverTrator 1.5s ease-in-out infinite;
+}
+
+/* Texto de apoio */
+.loading-texto {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text, #333333);
+    letter-spacing: 0.5px;
+    animation: pulsarTexto 1.5s ease-in-out infinite;
+}
+
+/* Animação que simula o trator a trabalhar (pequeno balanço vertical e inclinação) */
+@keyframes moverTrator {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-4px) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(2deg);
+    }
+}
+
+/* Animação para o texto piscar suavemente */
+@keyframes pulsarTexto {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}

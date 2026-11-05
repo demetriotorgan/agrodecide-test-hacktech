@@ -1,0 +1,53 @@
+/* ==========================================================================
+   1. HEADER COMPONENT
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px; /* Ajustado para dar um espaçamento interno melhor */
+    background-color: var(--color-primary-dark); /* Fundo escuro imponente para o topo */
+    border-bottom: 2px solid var(--color-primary); /* Linha firme substituindo o pontilhado */
+    box-shadow: var(--shadow-sm); /* Sombra sutil global */
+    
+}
+
+/* Estilização da Logo */
+/* Container do Logo (Canto Esquerdo) */
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 48px; /* Controla a altura máxima da área do logo */
+}
+
+/* Estilização da Imagem do Logo */
+.logo-container img {
+    height: 100%; /* Faz a imagem respeitar o tamanho do container */
+    width: auto;  /* Mantém a proporção perfeita do desenho da folha */
+    object-fit: contain;
+}
+/* Botão de Contato Interativo */
+.contact-btn {
+    background-color: var(--color-primary); /* Fundo verde principal */
+    color: var(--color-white); /* Texto branco */
+    border: none; /* Remove a borda antiga de placeholder */
+    padding: 8px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: var(--radius-sm); /* Arredondamento usando sua variável */
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Efeito de Hover/Clique para o botão */
+.contact-btn:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+.contact-btn:active {
+    transform: scale(0.98);
+}

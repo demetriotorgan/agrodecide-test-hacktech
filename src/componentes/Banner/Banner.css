@@ -1,0 +1,45 @@
+.banner-container{
+    border: 1px solid var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 10px;
+    background-color: var( --color-primary);
+    border-radius: 5px;
+    color: var(--color-white);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    gap: 5px;
+}
+
+.banner-icon{
+    color: var(--color-white);
+    margin: 10px;
+}
+
+.banner-temp-agora{
+    display: flex;
+    flex-direction: column;
+    line-height: 22px;
+}
+
+.banner-umidade{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-chuva{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-vento{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

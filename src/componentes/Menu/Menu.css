@@ -1,0 +1,79 @@
+/* ==========================================================================
+   2. Grid de Botões de Acesso
+   ========================================================================== */
+
+.access-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px; /* Aumentado sutilmente para respirar melhor */
+    padding: 16px 16px; /* Alinhado com as laterais do app */
+}
+
+.access-card {
+    /* Aplicando as variáveis globais de cor e borda */
+    background-color: var(--color-primary);
+    border: 1px solid transparent; /* Remove a borda cinza pesada */
+    border-radius: var(--radius-md); /* Alinhado ao padrão do projeto (12px) */
+    
+    /* Cores de texto e ícones unificadas */
+    color: var(--color-primary-dark);
+    
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 140px;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Efeito de profundidade sutil */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    
+    /* Transição suave para estados de hover/active */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+/* Interações modernas (Hover e Foco) */
+.access-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md); /* Sombra cresce ao flutuar */
+    background-color: #9be2c4; /* Um tom levemente mais intenso do primary-light para feedback */
+}
+
+.access-card:active {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Centralizador do Ícone */
+.card-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    
+    border: 1px solid var(--color-white);
+    border-radius: var(--radius-sm);
+}
+
+/* Ajuste dos Ícones do Lucide (SVG) */
+.card-icon svg {
+    width: 32px;  /* Deixa o ícone proporcional e visível */
+    height: 32px;
+    stroke-width: 1.8px; /* Espessura moderna do traço */
+    color: var(--color-white);
+}
+
+/* Títulos dos Cards */
+.card-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.4;
+    letter-spacing: 0.5px; /* Melhora a legibilidade de textos em caixa alta */
+    color: var(  --color-white);
+}

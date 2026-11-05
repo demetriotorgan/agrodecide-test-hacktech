@@ -1,0 +1,54 @@
+
+.btn-voltar {
+  /* Alinhamento interno do ícone e texto */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100px;
+
+  /* Cores baseadas nas variáveis globais */
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  
+  /* Dimensões e Espaçamento */
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  
+  /* Bordas e Cantos */
+  border: none;
+  border-radius: var(--radius-md); /* 12px conforme paleta */
+  
+  /* Efeitos Visuais */
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  
+  /* Margem para não colar nos elementos ao redor (ajuste conforme a tela) */
+  margin-top: 10px;
+  margin-left: 10px;  
+}
+
+/* Tamanho do ícone SVG */
+.btn-voltar-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Efeito de Hover (Passar o mouse) - Um tom ligeiramente mais escuro para feedback */
+.btn-voltar:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+}
+
+/* Efeito de Active (Clique do mouse) - Leve clique físico */
+.btn-voltar:active {
+  transform: scale(0.98);
+}
+
+/* Foco para acessibilidade */
+.btn-voltar:focus-visible {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
