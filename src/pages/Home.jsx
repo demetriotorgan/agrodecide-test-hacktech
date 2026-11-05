@@ -25,13 +25,13 @@ const Home = () => {
   }
   return (
     <>
-      {/* <Banner dadosApi={dadosApi} />
+      <Banner dadosApi={dadosApi} />
       <Alerta dadosApi={dadosApi} />
       <VoiceAgent />
-      <Menu /> */}
+      <Menu />
 
       {/* <TesteVoz /> */}
-      <TesteTTS />
+      {/* <TesteTTS /> */}
       
     </>
 
