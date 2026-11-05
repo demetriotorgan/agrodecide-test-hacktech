@@ -6,6 +6,7 @@ import LoadingTrator from '../assets/LoadingTrator/LoadingTrator';
 import Banner from '../componentes/Banner/Banner';
 import VoiceAgent from '../componentes/VoiceAgent/VoiceAgent';
 import TesteVoz from '../componentes/TesteVoz';
+import TesteTTS from '../componentes/TesteTTS';
 
 
 const Home = () => {
@@ -24,12 +25,13 @@ const Home = () => {
   }
   return (
     <>
-      <Banner dadosApi={dadosApi} />
+      {/* <Banner dadosApi={dadosApi} />
       <Alerta dadosApi={dadosApi} />
       <VoiceAgent />
-      <Menu />
+      <Menu /> */}
 
       {/* <TesteVoz /> */}
+      <TesteTTS />
       
     </>
 
