@@ -1,11 +1,63 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
+import { WeatherContext } from "../../context/WeatherContext";
+import { enviarPerguntaVoz } from "../../services/vozService";
 
 export default function VoiceAgent() {
   const [ouvindo, setOuvindo] = useState(false);
+  const [pensando, setPensando] = useState(false);
+  const [resposta, setResposta] = useState("");
+  const [ultimaPergunta, setUltimaPergunta] = useState("");
   const recognitionRef = useRef(null);
 
+  // Pega a localização que já foi capturada ao iniciar o app
+  const { location } = useContext(WeatherContext);
+
+  function falarResposta(texto) {
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = "pt-BR";
+    utterance.rate = 1;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  async function enviarParaAPI(pergunta) {
+    if (!location) {
+      const msg = "Ainda estou buscando sua localização, tenta de novo em um segundo.";
+      setResposta(msg);
+      falarResposta(msg);
+      return;
+    }
+
+    try {
+      setPensando(true);
+      setResposta("");
+      console.log("--- VOZ -> API ---");
+      console.log("Pergunta:", pergunta);
+      console.log("Location:", location);
+
+      const data = await enviarPerguntaVoz({
+        pergunta,
+        latitude: location.latitude,
+        longitude: location.longitude,
+      });
+
+      console.log("Resposta da API:", data);
+
+      const textoResposta = data.resposta || "Não consegui entender, pode repetir?";
+      setResposta(textoResposta);
+      falarResposta(textoResposta);
+
+    } catch (error) {
+      console.error("[ERRO VOZ]", error);
+      const msg = "Deu um erro ao consultar, tenta de novo.";
+      setResposta(msg);
+      falarResposta(msg);
+    } finally {
+      setPensando(false);
+    }
+  }
+
   function handleToggleOuvir() {
-    // 1. Pega a API do navegador (Chrome usa webkitSpeechRecognition)
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -14,14 +66,12 @@ export default function VoiceAgent() {
       return;
     }
 
-    // 2. Se já está ouvindo, para
     if (ouvindo) {
       recognitionRef.current?.stop();
       setOuvindo(false);
       return;
     }
 
-    // 3. Se não está ouvindo, cria e inicia
     const recognition = new SpeechRecognition();
     recognition.lang = "pt-BR";
     recognition.interimResults = false;
@@ -35,6 +85,9 @@ export default function VoiceAgent() {
     recognition.onresult = (event) => {
       const texto = event.results[0][0].transcript;
       console.log("Transcrição:", texto);
+      setUltimaPergunta(texto);
+      // AQUI ESTAVA FALTANDO: manda pra API
+      enviarParaAPI(texto);
     };
 
     recognition.onend = () => {
@@ -63,16 +116,29 @@ export default function VoiceAgent() {
         onClick={handleToggleOuvir}
         style={{
           ...styles.button,
-          background: ouvindo ? "#e74c3c" : "#2e7d32",
+          background: ouvindo ? "#e74c3c" : pensando ? "#ff9800" : "#2e7d32",
         }}
         aria-label="Falar com o AgroDecide"
+        disabled={pensando}
       >
-        {ouvindo ? "🔴" : "🎤"}
+        {ouvindo ? "🔴" : pensando ? "🤔" : "🎤"}
       </button>
 
       <p style={styles.status}>
-        {ouvindo ? "Ouvindo..." : "Toque para falar"}
+        {ouvindo
+          ? "Ouvindo..."
+          : pensando
+          ? "Pensando..."
+          : "Toque para falar"}
       </p>
+
+      {ultimaPergunta && (
+        <p style={styles.pergunta}>Você: "{ultimaPergunta}"</p>
+      )}
+
+      {resposta && (
+        <p style={styles.resposta}>AgroDecide: {resposta}</p>
+      )}
     </div>
   );
 }
@@ -114,5 +180,20 @@ const styles = {
     margin: 0,
     fontSize: 13,
     color: "#666",
+  },
+  pergunta: {
+    margin: "8px 0 0",
+    fontSize: 14,
+    fontStyle: "italic",
+    color: "#333",
+  },
+  resposta: {
+    margin: "4px 0 0",
+    fontSize: 14,
+    fontWeight: 600,
+    color: "#2e7d32",
+    background: "#fff",
+    padding: "10px 12px",
+    borderRadius: 10,
   },
 };

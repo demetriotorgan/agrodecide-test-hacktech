@@ -5,6 +5,7 @@ import { useWeather } from '../hooks/useWeather';
 import LoadingTrator from '../assets/LoadingTrator/LoadingTrator';
 import Banner from '../componentes/Banner/Banner';
 import VoiceAgent from '../componentes/VoiceAgent/VoiceAgent';
+import TesteVoz from '../componentes/TesteVoz';
 
 
 const Home = () => {
@@ -27,6 +28,8 @@ const Home = () => {
       <Alerta dadosApi={dadosApi} />
       <VoiceAgent />
       <Menu />
+
+      {/* <TesteVoz /> */}
       
     </>
 

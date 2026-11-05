@@ -12,3 +12,4 @@ export const getWeather = async ({ latitude, longitude }) => {
   
   return response.data.data;
 }
+
